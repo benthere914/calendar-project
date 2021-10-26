@@ -4,5 +4,34 @@
 </head>
 <body>
     <h1>Calendar working</h1>
+    <form method="post" action="/">
+        {{ form.name }}
+        {{ form.start_time }}
+        {{ form.end_time }}
+        {{ form.description }}
+        {{ form.private }}
+        {{ form.submit }}
+
+    </form>
+    <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Start</th>
+            <th>End</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for row in rows %}
+                <tr> {{ row.name }} </tr>
+                <tr> {{ row.start.strftime("%H:%M") }} </tr>
+                <tr> {{ row.end.strftime("%H:%M") }} </tr>
+
+            {% endfor %}
+          <!-- loop here to create rows -->
+          <!-- use strftime to format date objects -->
+          <!-- loop here to create rows -->
+        </tbody>
+      </table>
 </body>
 </html>
